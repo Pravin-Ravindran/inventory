@@ -49,6 +49,10 @@
                                 <td>{{ order.name }}</td>
                                 <td>{{ order.category }}</td>
                                 <td>{{ order.quantity }}</td>
+                                 <td>
+                                    <a href="{% url 'editorder' order.id %}" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{% url 'deleteorder' order.id %}"  class="btn btn-danger btn-sm">Delete</a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
