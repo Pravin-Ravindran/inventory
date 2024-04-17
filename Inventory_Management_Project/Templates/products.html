@@ -21,12 +21,14 @@
     <th>Product</th>
     <th>Category</th>
     <th>Quantity</th>
+    <th>Expiry Date</th>
   </tr>
   {% for product_items in product_items %}
   <tr>
       <td>{{ product_items.name }}</td>
       <td>{{ product_items.category }}</td>
       <td>{{ product_items.quantity }}</td>
+      <td>{{ product_items.expirydate }}</td>
   </tr>
   {% endfor %}
   

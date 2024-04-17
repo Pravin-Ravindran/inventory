@@ -6,11 +6,13 @@ CATEGORY = (
     ('Dessert' , 'Dessert'),
     ('Vegetable' , 'Vegetable'),
     ('Sauces' , 'Sauces'),
+    ('Fruit' , 'Fruit'),
     )
 class Product(models.Model):
     name=models.CharField(max_length=100,null=True)
     category=models.CharField(max_length=20,choices=CATEGORY,null=True)
     quantity=models.PositiveIntegerField(null=True)
+    expirydate =models.DateField(null=True) 
 
     objects = models.Manager()
 
