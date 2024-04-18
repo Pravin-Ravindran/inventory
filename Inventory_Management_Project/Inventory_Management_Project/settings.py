@@ -24,7 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ts=bc$)t2^q1h-g%%u*wi!ko$g&=o!wpgp0&7%nabbt86(1&l$'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['f129e01ce63e49108a0c44f2d64c269e.vfs.cloud9.us-east-1.amazonaws.com']
@@ -57,6 +56,7 @@ ROOT_URLCONF = 'Inventory_Management_Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # BASE_DIR is the directory where Django will look for template files. emplate files are located.
         'DIRS': [BASE_DIR / 'Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -73,8 +73,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Inventory_Management_Project.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# Postgresql Database Connection
 
 DATABASES = {
    'default': {
@@ -120,10 +119,10 @@ USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
 
 STATIC_URL = '/static/'
-
+#This setting specifies additional directories from which Django should collect static files. 
 STATICFILES_DIRS = [ BASE_DIR / "static"]
     
 # Default primary key field type

@@ -14,10 +14,13 @@
     </nav>
     <div class="container mt-5">
         <h2>Delete Order</h2>
+         <!-- Message displaying  for confirmation to delete the order and displaying the order name by retriving from database as passed in the views.py file -->
         <p>Are you sure you want to delete the order "{{ order }}"?</p>
         <form method="post">
             {% csrf_token %}
+            <!-- Button to submit the form and perform the delete action -->
             <button type="submit" class="btn btn-danger">Delete</button>
+            <!-- Button to cancel the delete action and return to the staff page -->
             <a href="{% url 'staff' %}" class="btn btn-secondary">Cancel</a>
         </form>
     </div>

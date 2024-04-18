@@ -18,12 +18,16 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
+                    <!-- Header for the card -->
                     Make Request
                 </div>
                 <div class="card-body">
+                    <!-- Form for making request -->
                     <form method="POST" action="{% url 'staff' %}">
                         {% csrf_token %}
+                        <!-- Display form fields as paragraphs -->
                         {{ form.as_p }}
+                         <!-- Submit button -->
                         <input class="btn btn-info btn-block" type="submit" value="Make Request">
                     </form>
                 </div>
@@ -32,6 +36,7 @@
         <div class="col-md-8">
             <div class="card custom-card-width" style="width: 100%;" >
                 <div class="card-header">
+                    <!-- Header for the card -->
                     Orders Records
                 </div>
                 <div class="card-body">
@@ -41,17 +46,25 @@
                                 <th scope="col">Product</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Quantity</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for order in orders %}
+                            <!-- Loop over orders -->
                             <tr>
+                                <!-- Display product name -->
                                 <td>{{ order.name }}</td>
+                                <!-- Display product category -->
                                 <td>{{ order.category }}</td>
+                                <!-- Display product quantity -->
                                 <td>{{ order.quantity }}</td>
                                  <td>
+                                     <!-- Actions for the order -->
                                     <a href="{% url 'editorder' order.id %}" class="btn btn-primary btn-sm">Edit</a>
+                                    <!-- Edit button -->
                                     <a href="{% url 'deleteorder' order.id %}"  class="btn btn-danger btn-sm">Delete</a>
+                                     <!-- Delete button -->
                                 </td>
                             </tr>
                             {% endfor %}

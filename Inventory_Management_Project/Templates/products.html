@@ -24,11 +24,17 @@
     <th>Expiry Date</th>
   </tr>
   {% for product_items in product_items %}
+  <!-- loop for iterating over each product item -->
   <tr>
+    <!-- Table row for displaying product details -->
       <td>{{ product_items.name }}</td>
+      <!-- Table data cell for displaying product name -->
       <td>{{ product_items.category }}</td>
+      <!-- Table data cell for displaying product category -->
       <td>{{ product_items.quantity }}</td>
+      <!-- Table data cell for displaying product quantity -->
       <td>{{ product_items.expirydate }}</td>
+      <!-- Table data cell for displaying product expirydate -->
   </tr>
   {% endfor %}
   
