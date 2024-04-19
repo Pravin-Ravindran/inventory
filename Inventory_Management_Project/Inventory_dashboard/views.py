@@ -39,7 +39,7 @@ def staff(request):
     
 def editorder(request, order_id):
     # Retrieve the order instance with the given order_id, or return a 404 page if not found
-    order = get_object_or_404(Order, pk2=order_id)
+    order = get_object_or_404(Order, pk=order_id)
     # Check if the request method is POST
     if request.method == 'POST':
         # Create a form instance with POST data and the retrieved order instance
