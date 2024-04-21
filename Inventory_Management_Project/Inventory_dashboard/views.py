@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import Product
 from .models import Order
 from .forms import OrderForm
+from Inventory_Management_Project.stockslibrary.stockslibrary.invsystem import calculate_total_quantity
 from django.shortcuts import get_object_or_404
 # Create your views here.
 from django.http import HttpResponse
@@ -14,8 +15,9 @@ def index(request):
 def products(request):
     # Retrieve all product items from the database
     product_items=Product.objects.all()
+    total_quantity = calculate_total_quantity(product_items)
     # Render the products.html template with product items as context
-    return render(request,'products.html',{'product_items':product_items})
+    return render(request, 'products.html', {'product_items': product_items, 'total_quantity': total_quantity})
     
 def staff(request):
     # Check if the request method is POST
@@ -63,6 +65,15 @@ def deleteorder(request, order_id):
         return redirect('staff')
      # Render the 'deleteorder.html' template with the form as context   
     return render(request, 'deleteorder.html', {'order': order})
+    
+def productcount(request):
+    product_items=Product.objects.all()
+    total_quantity = calculate_total_quantity(product_items.values_list('quantity', flat=True))
+    return render(request,'products.html',{'product_items':product_items})
+    
+    
+
+    
 
 
     
